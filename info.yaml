@@ -1,6 +1,6 @@
 project:
   title: ATOMPU Silicon 1
-  author: ATOMPU project
+  author: Yuri Pacheco
   discord: ''
   description: Original 8-bit 4-register CPU with external handshake memory
   language: Verilog
