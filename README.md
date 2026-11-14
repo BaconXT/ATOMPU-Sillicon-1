@@ -1,42 +1,25 @@
-![](../../workflows/gds/badge.svg) ![](../../workflows/docs/badge.svg) ![](../../workflows/test/badge.svg) ![](../../workflows/fpga/badge.svg)
+# ATOMPU Silicon 1 — repositório para validação Tiny Tapeout
 
-# Tiny Tapeout Verilog Project Template
+Esta pasta foi montada a partir de `ATOMPU_S1_0780090_20261114.zip` (versão da conversa de 14/11/2026).
 
-- [Read the documentation for project](docs/info.md)
+## Antes de submeter
 
-## What is Tiny Tapeout?
+1. **Não envie este ZIP diretamente ao Tiny Tapeout.** Extraia-o e coloque o CONTEÚDO na raiz de um repositório GitHub público. A raiz deverá conter `info.yaml`, `src/`, `test/` e `docs/info.md` (não `asic/src/`).
+2. Em `info.yaml`, substitua `author: ATOMPU project` pelo nome/nome de equipe a publicar e verifique `top_module` e `source_files`.
+3. Revise `.github/workflows/gds.yaml` e `.github/workflows/test.yaml`. O workflow GDS foi copiado da entrega original, com ação Tiny Tapeout fixada por commit e execução manual; confirme que ainda é compatível com TTSKY26e e execute-o pelo GitHub Actions. Não presuma que a configuração esteja validada na nuvem.
+4. Confira a documentação, o projeto, os resultados de ações GDS, precheck e testes. Não pague nem use `Submit a new revision` enquanto não houver aprovação.
+5. `src/` e `rtl/` são cópias dos mesmos fontes; `verification/sync_template.py --check` verifica a sincronização.
+6. **Nenhum GDSII ou PCB de fabricação foi incluído**: os arquivos gerados e relatórios anteriores permanecem no ZIP completo original, para consulta.
 
-Tiny Tapeout is an educational project that aims to make it easier and cheaper than ever to get your digital and analog designs manufactured on a real chip.
+## Conteúdo
 
-To learn more and get started, visit https://tinytapeout.com.
+- `src/`: Verilog usado pelo fluxo Tiny Tapeout.
+- `rtl/`: fonte canônico do projeto, mantido para conferir sincronização.
+- `test/`: testes cocotb e testbench.
+- `docs/info.md`: resumo para datasheet do Tiny Tapeout, criado a partir de `docs/pinout.md` e `docs/timing.md`.
+- `info.yaml`: dados de identificação, área solicitada e pinos.
+- `assembler/`, `simulator/`, `examples/`: suporte de verificação e programas de demonstração.
+- `verification/`: scripts originais de validação.
+- `.github/workflows/`: workflows da entrega original, ainda sujeitos à aprovação da plataforma.
 
-## Set up your Verilog project
-
-1. Add your Verilog files to the `src` folder.
-2. Edit the [info.yaml](info.yaml) and update information about your project, paying special attention to the `source_files` and `top_module` properties. If you are upgrading an existing Tiny Tapeout project, check out our [online info.yaml migration tool](https://tinytapeout.github.io/tt-yaml-upgrade-tool/).
-3. Edit [docs/info.md](docs/info.md) and add a description of your project.
-4. Adapt the testbench to your design. See [test/README.md](test/README.md) for more information.
-
-The GitHub action will automatically build the ASIC files using [LibreLane](https://www.zerotoasiccourse.com/terminology/librelane/).
-
-## Enable GitHub actions to build the results page
-
-- [Enabling GitHub Pages](https://tinytapeout.com/faq/#my-github-action-is-failing-on-the-pages-part)
-
-## Resources
-
-- [FAQ](https://tinytapeout.com/faq/)
-- [Digital design lessons](https://tinytapeout.com/digital_design/)
-- [Learn how semiconductors work](https://tinytapeout.com/siliwiz/)
-- [Join the community](https://tinytapeout.com/discord)
-- [Build your design locally](https://www.tinytapeout.com/guides/local-hardening/)
-
-## What next?
-
-- [Submit your design to the next shuttle](https://app.tinytapeout.com/).
-- Edit [this README](README.md) and explain your design, how it works, and how to test it.
-- Share your project on your social network of choice:
-  - LinkedIn [#tinytapeout](https://www.linkedin.com/search/results/content/?keywords=%23tinytapeout) [@TinyTapeout](https://www.linkedin.com/company/100708654/)
-  - Mastodon [#tinytapeout](https://chaos.social/tags/tinytapeout) [@matthewvenn](https://chaos.social/@matthewvenn)
-  - X (formerly Twitter) [#tinytapeout](https://twitter.com/hashtag/tinytapeout) [@tinytapeout](https://twitter.com/tinytapeout)
-  - Bluesky [@tinytapeout.com](https://bsky.app/profile/tinytapeout.com)
+**Status:** pacote de fontes organizado para cadastro/validação, NÃO aprovação ou reserva de fabricação.

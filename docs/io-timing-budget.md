@@ -1,0 +1,9 @@
+# Orçamento e protocolo de I/O
+
+CPU de 8 bits, quatro registradores, top tt_um_atompu_s1. `info.yaml` documenta os24GPIO. `ui_in[7:0]` recebe READ_DATA; `uo_out[7:0]` fornece endereço/dado/R0; uio[0:6] fornece REQ/WRITE/IFETCH/DATA_PHASE/HALTED/Z/C_OR_FAULT, uio[7] recebe ACK. uio_oe=0x7F verificado em RTL/netlist/SDF; nunca dirigir esses sete sinais pelo Pico. ui/uio[0:6] não usados internamente como entradas não justificam ligar saídas externas concorrentes.
+
+Clock externo: meta ASIC 100 ns/10 MHz. SDC do template: entrada/saída20 ns, driver inv2, carga0,0334pF, clock transition0,15 ns, incerteza setup0,25 ns. Estes são modelos do bloco e não incluem automaticamente mux/shuttle/PCB/Pico. Relatório de STA em reports/physical-verification/timing-summary.md. Não confundir GPIO 3V3 da carrier com tensão nominal 1V8 das células internas SKY130; conversão pertence ao breakout escolhido.
+
+S1-4PHASE-v1 mantém endereço/dados/controle estáveis enquanto REQ aguarda ACK. ACK usa sincronizador; dados bundled-data devem ficar estáveis antes de ACK e até liberação da requisição. Não é sincronização independente de oito bits nem análise de MTBF. Firmware MicroPython é host lento (alvo inicial10 Hz), não usa a meta10 MHz; estado seguro exige identidade/índice/hardware confirmados. SW1 controla reset: firmware não possui linha exclusiva para dirigir reset e não detecta o botão.
+
+Harness a10 MHz:50 ns por semiperíodo, amostra no primeiro25 ns do nível baixo, aplica dados/ACK e dá25 ns antes da borda de captura; regressões de memória, latências, reset nas duas fases e conflitos de direção. Simulações não caracterizam MicroPython, USB, slew físico, tolerâncias ou margem do breakout. Medir e revisar o conjunto antes de aumentar a frequência. Ver também timing.md e firmware/README quando disponível.

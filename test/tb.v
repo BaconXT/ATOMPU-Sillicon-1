@@ -13,6 +13,15 @@ module tb ();
     #1;
   end
 
+`ifdef SDF_TEST
+  reg [4095:0] sdf_path;
+  initial begin
+    if (!$value$plusargs("SDF=%s", sdf_path)) $fatal(1, "SDF_TEST requires +SDF=path");
+    $display("ATOMPU_SDF_ANNOTATION_REQUEST file=%0s target=tb.user_project", sdf_path);
+    $sdf_annotate(sdf_path, user_project);
+  end
+`endif
+
   // Wire up the inputs and outputs:
   reg clk;
   reg rst_n;
@@ -22,16 +31,16 @@ module tb ();
   wire [7:0] uo_out;
   wire [7:0] uio_out;
   wire [7:0] uio_oe;
-`ifdef GL_TEST
+`ifdef USE_POWER_PINS
   wire VPWR = 1'b1;
   wire VGND = 1'b0;
 `endif
 
-  // Replace tt_um_example with your module name:
-  tt_um_example user_project (
+  // Replace tt_um_atompu_s1 with your module name:
+  tt_um_atompu_s1 user_project (
 
       // Include power ports for the Gate Level test:
-`ifdef GL_TEST
+`ifdef USE_POWER_PINS
       .VPWR(VPWR),
       .VGND(VGND),
 `endif

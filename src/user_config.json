@@ -1,0 +1,18 @@
+{
+  "DESIGN_NAME": "tt_um_atompu_s1",
+  "VERILOG_FILES": [
+    "dir::atompu_alu.v",
+    "dir::atompu_bus.v",
+    "dir::atompu_control.v",
+    "dir::atompu_decoder.v",
+    "dir::atompu_program_counter.v",
+    "dir::atompu_registers.v",
+    "dir::atompu_s1_top.v",
+    "dir::tt_um_atompu_s1.v"
+  ],
+  "DIE_AREA": "0 0 161.00 111.52",
+  "FP_DEF_TEMPLATE": "dir::../tt/tech/sky130A/def/tt_block_1x1_pg.def",
+  "VDD_PIN": "VPWR",
+  "GND_PIN": "VGND",
+  "RT_MAX_LAYER": "met4"
+}
