@@ -1,0 +1,66 @@
+[
+  {
+    "address": 0,
+    "bytes": [
+      16,
+      0
+    ],
+    "assembly": "LDI R0 0"
+  },
+  {
+    "address": 2,
+    "bytes": [
+      20,
+      5
+    ],
+    "assembly": "LDI R1 5"
+  },
+  {
+    "address": 4,
+    "bytes": [
+      24,
+      1
+    ],
+    "assembly": "LDI R2 1"
+  },
+  {
+    "address": 6,
+    "bytes": [
+      49,
+      0
+    ],
+    "assembly": "ADD R0 R1"
+  },
+  {
+    "address": 8,
+    "bytes": [
+      70,
+      0
+    ],
+    "assembly": "SUB R1 R2"
+  },
+  {
+    "address": 10,
+    "bytes": [
+      208,
+      6
+    ],
+    "assembly": "JNZ LOOP"
+  },
+  {
+    "address": 12,
+    "bytes": [
+      160,
+      32
+    ],
+    "assembly": "STORE R0 0X20"
+  },
+  {
+    "address": 14,
+    "bytes": [
+      240,
+      0
+    ],
+    "assembly": "HALT"
+  }
+]

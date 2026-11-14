@@ -1,0 +1,146 @@
+[
+  {
+    "address": 0,
+    "bytes": [
+      16,
+      255
+    ],
+    "assembly": "LDI R0 255"
+  },
+  {
+    "address": 2,
+    "bytes": [
+      20,
+      1
+    ],
+    "assembly": "LDI R1 1"
+  },
+  {
+    "address": 4,
+    "bytes": [
+      49,
+      0
+    ],
+    "assembly": "ADD R0 R1"
+  },
+  {
+    "address": 6,
+    "bytes": [
+      65,
+      0
+    ],
+    "assembly": "SUB R0 R1"
+  },
+  {
+    "address": 8,
+    "bytes": [
+      128,
+      0
+    ],
+    "assembly": "NOT R0"
+  },
+  {
+    "address": 10,
+    "bytes": [
+      41,
+      0
+    ],
+    "assembly": "MOV R2 R1"
+  },
+  {
+    "address": 12,
+    "bytes": [
+      98,
+      0
+    ],
+    "assembly": "OR R0 R2"
+  },
+  {
+    "address": 14,
+    "bytes": [
+      113,
+      0
+    ],
+    "assembly": "XOR R0 R1"
+  },
+  {
+    "address": 16,
+    "bytes": [
+      88,
+      0
+    ],
+    "assembly": "AND R2 R0"
+  },
+  {
+    "address": 18,
+    "bytes": [
+      232,
+      0
+    ],
+    "assembly": "CMP R2 R0"
+  },
+  {
+    "address": 20,
+    "bytes": [
+      192,
+      26
+    ],
+    "assembly": "JZ EQUAL"
+  },
+  {
+    "address": 22,
+    "bytes": [
+      16,
+      99
+    ],
+    "assembly": "LDI R0 99"
+  },
+  {
+    "address": 24,
+    "bytes": [
+      240,
+      0
+    ],
+    "assembly": "HALT"
+  },
+  {
+    "address": 26,
+    "bytes": [
+      156,
+      66
+    ],
+    "assembly": "LOAD R3 0X42"
+  },
+  {
+    "address": 28,
+    "bytes": [
+      172,
+      67
+    ],
+    "assembly": "STORE R3 0X43"
+  },
+  {
+    "address": 30,
+    "bytes": [
+      176,
+      34
+    ],
+    "assembly": "JMP END"
+  },
+  {
+    "address": 32,
+    "bytes": [
+      0,
+      0
+    ],
+    "assembly": "NOP"
+  },
+  {
+    "address": 34,
+    "bytes": [
+      240,
+      0
+    ],
+    "assembly": "HALT"
+  }
+]
